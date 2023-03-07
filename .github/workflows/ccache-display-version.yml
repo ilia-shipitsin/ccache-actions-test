@@ -1,0 +1,20 @@
+name: CCache
+
+on: workflow_dispatch
+
+jobs:
+  ccache:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+        - name: "Windows 2019"
+          os: windows-2019
+        - name: "Windows 2022"
+          os: windows-2022
+    steps:
+    - uses: actions/checkout@v3
+    - name: Display CCache version
+      run: |
+        ccache --version
