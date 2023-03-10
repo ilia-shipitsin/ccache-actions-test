@@ -17,6 +17,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Display CCache version
       run: |
+        ${ENV:RUNNER_TOOL_CACHE}
         Get-childitem c:\programdata\chocolatey\bin\
         ${ENV:PATH}
         Get-Command ccache.exe
